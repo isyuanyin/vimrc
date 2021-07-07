@@ -83,6 +83,7 @@ filetype plugin indent on
 set number 
 set tabstop=4
 
+set list
 set listchars=tab:>-,trail:-
 
 " syntax
