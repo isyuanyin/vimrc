@@ -85,7 +85,7 @@ filetype plugin indent on
 set number
 set tabstop=4
 set shiftwidth=4
-set autoindent=4
+set autoindent
 
 set list
 set listchars=tab:>-,trail:-
