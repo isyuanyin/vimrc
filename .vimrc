@@ -31,6 +31,8 @@ filetype off  " be iMproved, required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'w0rp/ale'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -80,8 +82,10 @@ call plug#end()
 filetype plugin indent on
 
 " display
-set number 
+set number
 set tabstop=4
+set shiftwidth=4
+set autoindent=4
 
 set list
 set listchars=tab:>-,trail:-
@@ -98,11 +102,18 @@ set hlsearch
 set incsearch
 
 set showmatch
+
 set ignorecase
 set smartcase
 
+" mouse usage
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+set paste
+
 " keyboard settings
-let mapleader = ","
+let mapleader = " "
 
 
 
