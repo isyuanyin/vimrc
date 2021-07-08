@@ -8,18 +8,18 @@ filetype off  " be iMproved, required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " 
 " " let Vundle manage Vundle, required
-" Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 " Plugin 'majutsushi/tagbar'  " Tag bar
 " Plugin 'scrooloose/nerdtree'
 " Plugin 'w0rp/ale'
-" Plugin 'ycm-core/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 " 
 " Plugin 'ludovicchabant/vim-gutentags'
-" call vundle#end()
+call vundle#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,10 +107,10 @@ set ignorecase
 set smartcase
 
 " mouse usage
-set mouse=a
-set selection=exclusive
-set selectmode=mouse,key
-set paste
+" set mouse=a
+" set selection=exclusive
+" set selectmode=mouse,key
+" set paste
 
 " keyboard settings
 let mapleader = " "
@@ -121,9 +121,9 @@ let mapleader = " "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"“”“”“”“”“”“”“”“ Plugin settings ”“”“”“”“”“”“”“”“”“”“”“
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let g:ycm_server_python_interpreter='/usr/bin/python'
-" let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+" YouCompleteMe
+let g:ycm_server_python_interpreter='/usr/bin/python'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
 " nerdtree
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
@@ -134,4 +134,4 @@ let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 let g:interestingWordsRandomiseColors = 1
 
 " vim-airline
-
+let g:airline_theme='powerlineish'
