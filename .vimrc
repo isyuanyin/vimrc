@@ -31,6 +31,8 @@ call vundle#end()
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'Raimondi/delimitMate'
+
 Plug 'w0rp/ale'
 
 Plug 'vim-airline/vim-airline'
@@ -157,3 +159,6 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Show_One_File = 1
 let Tlist_Auto_Open=0
 let Tlist_Use_Right_Window = 0
+
+" delimitmate
+let g:delimitMate_expand_cr = 1
