@@ -87,6 +87,9 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
+set foldmethod=syntax
+set nofoldenable
+
 set list
 set listchars=tab:>-,trail:-
 
@@ -140,4 +143,17 @@ let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
-" 
+"ale
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '-'
+
+let g:ale_lint_on_text_changed = 0 " don't hint when change file 
+let g:ale_lint_on_save = 1 " hint when save file
+
+" taglist
+nnoremap <silent> <leader>t <Esc>:TlistToggle<Cr>
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Show_One_File = 1
+let Tlist_Auto_Open=0
+let Tlist_Use_Right_Window = 0
