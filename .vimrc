@@ -11,14 +11,15 @@ filetype off  " be iMproved, required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " 
-" " let Vundle manage Vundle, required
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
 " Plugin 'majutsushi/tagbar'  " Tag bar
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'w0rp/ale'
+
 Plugin 'ycm-core/YouCompleteMe'
-" 
+
 " Plugin 'ludovicchabant/vim-gutentags'
+
 call vundle#end()
 
 
@@ -31,6 +32,15 @@ call vundle#end()
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+" Markdown preview.
+" Plug 'iamcco/mathjax-support-for-mkdp'
+" Plug 'iamcco/markdown-preview.vim'
+
+" () [] {} match
 Plug 'Raimondi/delimitMate'
 
 Plug 'w0rp/ale'
@@ -65,17 +75,14 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " Using a non-default branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
+" A plugin for Go language.
+" Plug 'fatih/vim-go', { 'tag': '*' }
 
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+" An autocompletion daemon for the Go programming language.
+" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
+" fzf is a general-purpose command-line fuzzy finder.
+Plug 'junegunn/fzf', {'do': './install --all' }
 
 " Initialize plugin system
 call plug#end()
@@ -162,3 +169,7 @@ let Tlist_Use_Right_Window = 0
 
 " delimitmate
 let g:delimitMate_expand_cr = 1
+
+" markdown preview
+" noremap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
+" noremap <silent> <F8> <Plug>StopMarkdownPreview    " for normal mode
