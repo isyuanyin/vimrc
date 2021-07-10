@@ -128,10 +128,16 @@ let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 " nerdtree
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
-" interesting words 
+" interesting words
 let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 let g:interestingWordsRandomiseColors = 1
 
 " vim-airline
-let g:airline_theme='powerlineish'
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#buffer_nr_show=1
+
+" 
