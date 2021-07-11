@@ -3,6 +3,9 @@ set nocompatible
 set encoding=utf-8
 set fileencodings=utf-8,chinese,latin-1
 
+set guifont=Hack:h11
+" set guifont=FiraCode\ Nerd\ Font:h11
+
 if has("win32")
 	set fileencoding=chinese
 else
