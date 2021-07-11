@@ -45,6 +45,8 @@ Plug 'Raimondi/delimitMate'
 
 Plug 'w0rp/ale'
 
+Plug 'edkolev/tmuxline.vim'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -145,7 +147,7 @@ let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 let g:interestingWordsRandomiseColors = 1
 
-" vim air-line
+" vim-airline
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#branch#enabled=1
