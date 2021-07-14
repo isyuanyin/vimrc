@@ -1,5 +1,11 @@
 set nocompatible
 
+set termguicolors " to display more color
+
+" tick :help hit-enter to known more
+set shortmess=a
+set cmdheight=2
+
 set encoding=utf-8
 set fileencodings=utf-8,chinese,latin-1
 
@@ -27,9 +33,8 @@ filetype off  " be iMproved, required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/vimfiles/bundle/Vundle.vim
-call vundle#begin()
-" 
-" let Vundle manage Vundle, required
+call vundle#begin('~/vimfiles/bundle')
+
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugin 'majutsushi/tagbar'  " Tag bar
@@ -46,7 +51,6 @@ call vundle#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/vimfiles/plugged')
 
@@ -54,9 +58,6 @@ call plug#begin('~/vimfiles/plugged')
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
-" Markdown preview.
-" Plug 'iamcco/mathjax-support-for-mkdp'
-" Plug 'iamcco/markdown-preview.vim'
 
 " () [] {} match
 Plug 'Raimondi/delimitMate'
@@ -183,7 +184,3 @@ let g:ale_lint_on_save = 1 " hint when save file
 
 " delimitmate
 " let g:delimitMate_expand_cr = 1
-
-" markdown preview
-" noremap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
-" noremap <silent> <F8> <Plug>StopMarkdownPreview    " for normal mode
