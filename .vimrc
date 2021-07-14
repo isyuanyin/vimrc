@@ -1,5 +1,17 @@
 set nocompatible
 
+" Install vim-plug if it's not already installed.
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	https://raw.github.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source %
+endif
+
+" Install Vudnle if it's not already installed.
+if empty(glob('~/.vim/bundle/Vundle.vim'))
+	silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	autocmd VimEnter * PluginInstall --sync | source %
+endif
 
 filetype off  " be iMproved, required
 
@@ -18,6 +30,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ycm-core/YouCompleteMe'
 
+" Markdown preview.
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
 " Plugin 'ludovicchabant/vim-gutentags'
 
 call vundle#end()
@@ -35,10 +50,6 @@ call plug#begin('~/.vim/plugged')
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
-" Markdown preview.
-" Plug 'iamcco/mathjax-support-for-mkdp'
-" Plug 'iamcco/markdown-preview.vim'
 
 " () [] {} match
 Plug 'Raimondi/delimitMate'
@@ -88,7 +99,6 @@ Plug 'junegunn/fzf', {'do': './install --all' }
 
 " Initialize plugin system
 call plug#end()
-
 
 filetype plugin indent on
 
@@ -175,5 +185,4 @@ let Tlist_Use_Right_Window = 0
 let g:delimitMate_expand_cr = 1
 
 " markdown preview
-" noremap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
-" noremap <silent> <F8> <Plug>StopMarkdownPreview    " for normal mode
+let vim_markdown_preview_github=1
