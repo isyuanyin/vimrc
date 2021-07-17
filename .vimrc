@@ -9,55 +9,28 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"- general -------------------------------------------------
 set nocompatible
-
-" display
-set ruler
-
-set number
-set tabstop=4
-set shiftwidth=4
-set autoindent
-
-set foldmethod=syntax
-set nofoldenable
-
-set list
-set listchars=tab:>-,trail:-
-
-set cursorcolumn
-
-" record the position of the cursor.
-set viewoptions=cursor
-au BufWinLeave ?* mkview
-au VimEnter ?* silent loadview
-
-" syntax
-syntax enable
-syntax on
-
-" color scheme
-colorscheme desert
-
-" search and match
-set hlsearch
-set incsearch
-
-set showmatch
-
-set ignorecase
-set smartcase
-
-" mouse usage
-set mouse=a
-" set selection=exclusive
-" set selectmode=mouse,key
-set paste
 
 " keyboard settings
 let mapleader = " "
 
-""""""" auto
+" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+"- display -------------------------------------------------
+
+" color scheme
+colorscheme desert
+
+set ruler
+
+set number
+
+" indent
+set tabstop=4
+set shiftwidth=4
+set autoindent
+
 autocmd FileType java,javascript,html,css,xml set tabstop=2
 autocmd FileType java,javascript,html,css,xml set shiftwidth=2
 autocmd FileType java,javascript,html,css,xml set softtabstop=2
@@ -66,7 +39,68 @@ autocmd FileType python,shell,bash set tabstop=4
 autocmd FileType python,shell,bash set shiftwidth=4
 autocmd FileType python,shell,bash set softtabstop=4
 
-" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+set list
+set listchars=tab:>-,trail:-
+
+" syntax
+syntax enable
+syntax on
+
+set cursorcolumn
+
+
+"- operator ------------------------------------------------
+
+"set foldmethod=syntax
+set nofoldenable
+
+" record the position of the cursor.
+set viewoptions=cursor
+au BufWinLeave ?* mkview
+au VimEnter ?* silent loadview
+
+" mouse usage
+set mouse=a
+" set selection=exclusive
+" set selectmode=mouse,key
+set paste
+
+"- search & match ------------------------------------------
+
+set hlsearch
+set incsearch
+
+set showmatch
+
+set ignorecase
+set smartcase
+
+"- tab & window & buffer ---------------------------------------
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Close the current buffer
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
+
+" Close all the buffers
+map <leader>ba :bufdo bd<cr>
+
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
+map <leader>t<leader> :tabnext
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
