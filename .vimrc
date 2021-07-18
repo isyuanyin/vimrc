@@ -31,13 +31,13 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
-autocmd FileType java,javascript,html,css,xml set tabstop=2
-autocmd FileType java,javascript,html,css,xml set shiftwidth=2
-autocmd FileType java,javascript,html,css,xml set softtabstop=2
-
-autocmd FileType python,shell,bash set tabstop=4
-autocmd FileType python,shell,bash set shiftwidth=4
-autocmd FileType python,shell,bash set softtabstop=4
+" autocmd FileType java,javascript,html,css,xml set tabstop=2
+" autocmd FileType java,javascript,html,css,xml set shiftwidth=2
+" autocmd FileType java,javascript,html,css,xml set softtabstop=2
+" 
+" autocmd FileType python,shell,bash set tabstop=4
+" autocmd FileType python,shell,bash set shiftwidth=4
+" autocmd FileType python,shell,bash set softtabstop=4
 
 set list
 set listchars=tab:>-,trail:-
@@ -46,6 +46,7 @@ set listchars=tab:>-,trail:-
 syntax enable
 syntax on
 
+" highlight the column where the cursor is.
 set cursorcolumn
 
 
@@ -122,32 +123,6 @@ if empty(glob('~/.vim/bundle/Vundle.vim'))
 	autocmd VimEnter * PluginInstall --sync | source $MYVIMRC
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Plugin Manager: Vundle
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-filetype off  " be iMproved, required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugin 'majutsushi/tagbar'  " Tag bar
-
-Plugin 'ycm-core/YouCompleteMe'
-
-" Markdown preview.
-Plugin 'JamshedVesuna/vim-markdown-preview'
-
-call vundle#end()
-
-filetype plugin indent on
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -156,27 +131,29 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 " hex mode for binary file
 Plug 'fidian/hexmode'
 
 " automatically generate tags in specified location
+" e.g. .cache directory.
 Plug 'ludovicchabant/vim-gutentags'
 
-" Markdown
+" Markdown writting prlugin
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " () [] {} match
 Plug 'Raimondi/delimitMate'
 
+" highlight errors and warnings.
 Plug 'w0rp/ale'
 
+" for tmux
 Plug 'edkolev/tmuxline.vim'
 
+" status-line format and color scheme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -209,23 +186,44 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'nathanaelkane/vim-indent-guides'
 
 " Using a non-default branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " To find file, press <C-p> please.
 Plug 'kien/ctrlp.vim'
 
-" A plugin for Go language.
-" Plug 'fatih/vim-go', { 'tag': '*' }
-
-" An autocompletion daemon for the Go programming language.
-" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
 " fzf is a general-purpose command-line fuzzy finder.
 Plug 'junegunn/fzf', {'do': './install --all' }
+
+" Tag bar
+Plug 'majutsushi/tagbar'
 
 " Initialize plugin system
 call plug#end()
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Plugin Manager: Vundle
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+filetype off  " be iMproved, required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'ycm-core/YouCompleteMe'
+
+" Markdown preview.
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
+call vundle#end()
+
+filetype plugin indent on
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -233,21 +231,6 @@ call plug#end()
 " Plugin Configuration
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"- YouCompleteMe -------------------------------------------
-
-let g:ycm_server_python_interpreter='/usr/bin/python'
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-
-"- nerdtree ------------------------------------------------
-
-nnoremap <silent> <leader>n :NERDTreeToggle<CR>
-
-"- vim-interestingwords ------------------------------------
-
-let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
-let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
-let g:interestingWordsRandomiseColors = 1
 
 "- vim-airline ---------------------------------------------
 
@@ -258,6 +241,34 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
 let g:airline#extensions#tmuxline#enabled = 1
+
+"- YouCompleteMe -------------------------------------------
+
+" open syntax complete
+let g:ycm_seed_identifiers_with_syntax=1
+
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
+
+let g:ycm_min_num_identifier_candidate_chars = 2 " the min num chars for trigger completement.
+let g:ycm_complete_in_comments = 1  " complete in comments
+let g:ycm_complete_in_strings = 1   " complete in strings
+
+" diagnostics information display
+" let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_enable_diagnostic_highlighting = 1
+
+let g:ycm_error_symbol = '>'
+let g:ycm_warning_symbol = '-'
+
+let g:ycm_server_python_interpreter='/usr/bin/python'
+
+let g:ycm_confirm_extra_conf=0
+" let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+
+if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
+    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+endif
 
 "- ale -----------------------------------------------------
 
@@ -276,9 +287,23 @@ let Tlist_Show_One_File = 1
 let Tlist_Auto_Open=0
 let Tlist_Use_Right_Window = 0
 
+
+"- nerdtree ------------------------------------------------
+
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+
+"- vim-interestingwords ------------------------------------
+
+let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
+let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
+let g:interestingWordsRandomiseColors = 1
+
 "- delimitmate ---------------------------------------------
 
-let g:delimitMate_expand_cr = 1
+" let delimiMate_autoclose = 1
+" let delimiMate_matchpairs = "(:),[:],{:}"
+" let g:delimitMate_expand_cr = 1
+" let delimitMate_expand_space = 1
 
 "- markdown preview ----------------------------------------
 
@@ -287,6 +312,13 @@ let vim_markdown_preview_github=1
 "- ctrlp ---------------------------------------------------
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+"- ctags ---------------------------------------------------
+
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
 
 "- gutentags -----------------------------------------------
 
@@ -306,14 +338,9 @@ if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
-"- ctags ---------------------------------------------------
-
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-
 "- hexmode -------------------------------------------------
 
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.out,*.img,*iso'
 
 "- new plugin ----------------------------------------------
+
