@@ -31,13 +31,13 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
-" autocmd FileType java,javascript,html,css,xml set tabstop=2
-" autocmd FileType java,javascript,html,css,xml set shiftwidth=2
-" autocmd FileType java,javascript,html,css,xml set softtabstop=2
-" 
-" autocmd FileType python,shell,bash set tabstop=4
-" autocmd FileType python,shell,bash set shiftwidth=4
-" autocmd FileType python,shell,bash set softtabstop=4
+autocmd FileType java,javascript,html,css,xml set tabstop=2
+autocmd FileType java,javascript,html,css,xml set shiftwidth=2
+autocmd FileType java,javascript,html,css,xml set softtabstop=2
+
+autocmd FileType python,shell,bash set tabstop=4
+autocmd FileType python,shell,bash set shiftwidth=4
+autocmd FileType python,shell,bash set softtabstop=4
 
 set list
 set listchars=tab:>-,trail:-
@@ -52,7 +52,7 @@ set cursorcolumn
 
 "- operator ------------------------------------------------
 
-"set foldmethod=syntax
+set foldmethod=syntax
 set nofoldenable
 
 " record the position of the cursor.
@@ -61,10 +61,10 @@ au BufWinLeave ?* mkview
 au VimEnter ?* silent loadview
 
 " mouse usage
-set mouse=a
+set mouse=n
 " set selection=exclusive
 " set selectmode=mouse,key
-set paste
+" set paste
 
 "- search & match ------------------------------------------
 
@@ -79,29 +79,29 @@ set smartcase
 "- tab & window & buffer ---------------------------------------
 
 " Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
+nnoremap <silent> <leader><cr> :noh<cr>
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+nnoremap <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 " Close all the buffers
-map <leader>ba :bufdo bd<cr>
+nnoremap <leader>ba :bufdo bd<cr>
 
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
+nnoremap <leader>l :bnext<cr>
+nnoremap <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext
+nnoremap <leader>tn :tabnew<cr>
+nnoremap <leader>to :tabonly<cr>
+nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>tm :tabmove 
+nnoremap <leader>t<leader> :tabnext
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,17 +111,17 @@ map <leader>t<leader> :tabnext
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Install vim-plug if it's not already installed.
-if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	https://raw.github.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Install Vudnle if it's not already installed.
-if empty(glob('~/.vim/bundle/Vundle.vim'))
-	silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	autocmd VimEnter * PluginInstall --sync | source $MYVIMRC
-endif
+" if empty(glob('~/.vim/autoload/plug.vim'))
+" 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+" 	https://raw.github.com/junegunn/vim-plug/master/plug.vim
+" 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
+" 
+" " Install Vudnle if it's not already installed.
+" if empty(glob('~/.vim/bundle/Vundle.vim'))
+" 	silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" 	autocmd VimEnter * PluginInstall --sync | source $MYVIMRC
+" endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -216,6 +216,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" complete inputs
 Plugin 'ycm-core/YouCompleteMe'
 
 " Markdown preview.
@@ -264,7 +265,7 @@ let g:ycm_warning_symbol = '-'
 let g:ycm_server_python_interpreter='/usr/bin/python'
 
 let g:ycm_confirm_extra_conf=0
-" let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
 if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
     let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
@@ -300,10 +301,7 @@ let g:interestingWordsRandomiseColors = 1
 
 "- delimitmate ---------------------------------------------
 
-" let delimiMate_autoclose = 1
-" let delimiMate_matchpairs = "(:),[:],{:}"
-" let g:delimitMate_expand_cr = 1
-" let delimitMate_expand_space = 1
+let g:delimitMate_expand_cr = 1
 
 "- markdown preview ----------------------------------------
 
