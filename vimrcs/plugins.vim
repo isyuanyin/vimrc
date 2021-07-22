@@ -27,8 +27,14 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
+" grep tools
+" Plug 'vim-scripts/grep.vim'
+
 " hex mode for binary file
 Plug 'fidian/hexmode'
+
+" ARM assembly language 
+Plug 'ARM9/arm-syntax-vim'
 
 " automatically generate tags in specified location
 " e.g. .cache directory.
@@ -37,6 +43,9 @@ Plug 'ludovicchabant/vim-gutentags'
 " Markdown writting prlugin
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+
+Plug 'jcf/vim-latex'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 " () [] {} match
 Plug 'Raimondi/delimitMate'
@@ -203,6 +212,19 @@ let g:delimitMate_expand_cr = 1
 
 let vim_markdown_preview_github=1
 
+"- vim-latex -----------------------------------------------
+
+filetype indent on
+let g:tex_flavor='latex'
+set iskeyword+=:
+let g:Tex_CompileRule_pdf='xelatex -interaction=nonstopmode $*'
+let g:Tex_DefaultTargetFormat="pdf"
+let g:Tex_ViewRule_pdf = 'okular --unique'
+let g:livepreview_previewer = 'okular --unique'
+autocmd Filetype tex setl updatetime=1
+
+nnoremap <silent> <leader>p <Esc>:LLPStartPreview<CR>
+
 "- ctrlp ---------------------------------------------------
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -235,6 +257,10 @@ endif
 "- hexmode -------------------------------------------------
 
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.out,*.img,*iso'
+
+"- arm-syntax-vim ------------------------------------------
+
+au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
 
 "- new plugin ----------------------------------------------
 

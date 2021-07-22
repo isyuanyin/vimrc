@@ -17,12 +17,17 @@ let mapleader = " "
 
 " autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
+set timeoutlen=0 " time switch mode
+
+" autocmd InsertEnter * set timeoutlen=100
+" autocmd InsertLeave * set timeoutlen=100
+
 "- display -------------------------------------------------
 
 " color scheme
 colorscheme desert
 
-set ruler
+set ruler " display the line and column info
 
 set number
 
@@ -30,6 +35,9 @@ set number
 set tabstop=4
 set shiftwidth=4
 set autoindent
+
+set smartindent
+set cindent
 
 autocmd FileType java,javascript,html,css,xml set tabstop=2
 autocmd FileType java,javascript,html,css,xml set shiftwidth=2
@@ -50,7 +58,11 @@ syntax on
 set cursorcolumn
 
 
-"- operator ------------------------------------------------
+"- motion & operator ------------------------------------------------
+
+set linebreak
+
+set whichwrap=b,s,<,>,[,] " cursor auto come to the next line.
 
 set foldmethod=syntax
 set nofoldenable
@@ -66,6 +78,8 @@ set mouse=n
 " set selection=exclusive
 " set selectmode=mouse,key
 " set paste
+
+set wildmenu
 
 "- search & match ------------------------------------------
 
