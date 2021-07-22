@@ -30,25 +30,34 @@ developp_install() {
 	echo "Installed the vim configuration successfully!"
 }
 
-if [ $# == 0 ]
-then
-	normal_install
-elif [ $# == 1 ]
-then
-	case $1 in
-	dev*)
-		developp_install
-	;;
-	normal)
+main() {
+	if [ $# == 0 ]
+	then
 		normal_install
-	;;
-	direct)
-		direct_install
-	;;
-	*)
-			echo "Error: wrong parameter. Please enter again."
+	elif [ $# == 1 ]
+	then
+		case $1 in
+		dev*)
+			developp_install
 		;;
-	esac
-else
-	echo "Error: too many parameters!"
-fi
+		normal)
+			normal_install
+		;;
+		direct)
+			direct_install
+		;;
+		*)
+				echo "Error: wrong parameter. Please enter again."
+			;;
+		esac
+	else
+		echo "Error: too many parameters!"
+	fi
+
+cp -r plugin ~/.vim/
+cp -r autoload ~/.vim/
+
+}
+
+main $@
+

@@ -17,10 +17,12 @@ let mapleader = " "
 
 " autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-set timeoutlen=0 " time switch mode
+" time switch mode
 
-" autocmd InsertEnter * set timeoutlen=100
-" autocmd InsertLeave * set timeoutlen=100
+" set timeoutlen=0
+
+autocmd InsertEnter * set timeoutlen=0
+autocmd InsertLeave * set timeoutlen=0
 
 "- display -------------------------------------------------
 

@@ -1,25 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Auto Install Plugin Manager
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Install vim-plug if it's not already installed.
-if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	https://raw.github.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Install Vudnle if it's not already installed.
-if empty(glob('~/.vim/bundle/Vundle.vim'))
-	silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	autocmd VimEnter * PluginInstall --sync | source $MYVIMRC
-endif
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Plugin Manager: vim-plug
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -33,7 +13,7 @@ call plug#begin('~/.vim/plugged')
 " hex mode for binary file
 Plug 'fidian/hexmode'
 
-" ARM assembly language 
+" arm assembly language
 Plug 'ARM9/arm-syntax-vim'
 
 " automatically generate tags in specified location
@@ -58,10 +38,10 @@ Plug 'edkolev/tmuxline.vim'
 
 " status-line format and color scheme
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 
 " A simple plugin show the last file user has open
-Plug 'mhinz/vim-startify' 
+Plug 'mhinz/vim-startify'
 
 " High light the word at all place.
 Plug 'lfv89/vim-interestingwords'
@@ -112,32 +92,6 @@ call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Plugin Manager: Vundle
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-filetype off  " be iMproved, required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" complete inputs
-Plugin 'ycm-core/YouCompleteMe'
-
-" Markdown preview.
-Plugin 'JamshedVesuna/vim-markdown-preview'
-
-call vundle#end()
-
-filetype plugin indent on
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Plugin Configuration
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,30 +105,6 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
 let g:airline#extensions#tmuxline#enabled = 1
-
-"- YouCompleteMe -------------------------------------------
-
-" open syntax complete
-let g:ycm_seed_identifiers_with_syntax=1
-
-set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt = 0
-
-let g:ycm_min_num_identifier_candidate_chars = 2 " the min num chars for trigger completement.
-let g:ycm_complete_in_comments = 1  " complete in comments
-let g:ycm_complete_in_strings = 1   " complete in strings
-
-" diagnostics information display
-let g:ycm_show_diagnostics_ui = 0
-" let g:ycm_enable_diagnostic_highlighting = 1
-
-let g:ycm_error_symbol = '>'
-let g:ycm_warning_symbol = '-'
-
-let g:ycm_server_python_interpreter='/usr/bin/python'
-
-" let g:ycm_confirm_extra_conf=0
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
 "- ale -----------------------------------------------------
 
@@ -211,6 +141,9 @@ let g:delimitMate_expand_cr = 1
 "- markdown preview ----------------------------------------
 
 let vim_markdown_preview_github=1
+
+" Markdown preview.
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 "- vim-latex -----------------------------------------------
 
