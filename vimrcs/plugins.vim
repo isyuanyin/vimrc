@@ -7,6 +7,11 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
+Plug 'othree/xml.vim'
+
+" HTML plugin
+Plug 'mattn/emmet-vim'
+
 " grep tools
 " Plug 'vim-scripts/grep.vim'
 
@@ -182,7 +187,7 @@ let s:vim_tags = expand('~/.cache/tags')
 
 let g:gutentags_cache_dir = s:vim_tags
 
-" detect wheter ~/.cache/tags exits.
+" detect whether ~/.cache/tags exits.
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
@@ -194,6 +199,10 @@ let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.out,*.img,*iso'
 "- arm-syntax-vim ------------------------------------------
 
 au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
+
+"- emmet ---------------------------------------------------
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,mm EmmetInstall
 
 "- new plugin ----------------------------------------------
 

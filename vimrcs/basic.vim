@@ -76,10 +76,11 @@ au VimEnter ?* silent loadview
 
 " mouse usage
 " !To be care. This setting will cause many expected behavior of vim.
-set mouse=n
+" set mouse
 " set selection=exclusive
 " set selectmode=mouse,key
-" set paste
+
+set paste
 
 set wildmenu
 
