@@ -39,7 +39,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugin 'majutsushi/tagbar'  " Tag bar
 
-Plugin 'ycm-core/YouCompleteMe'
+" Plugin 'ycm-core/YouCompleteMe'
 
 " Plugin 'ludovicchabant/vim-gutentags'
 
@@ -57,10 +57,6 @@ call plug#begin('~/vimfiles/plugged')
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
-
-" () [] {} match
-Plug 'Raimondi/delimitMate'
 
 Plug 'w0rp/ale'
 
@@ -99,7 +95,6 @@ Plug 'junegunn/fzf', {'do': './install --all' }
 
 " Initialize plugin system
 call plug#end()
-
 
 filetype plugin indent on
 
@@ -181,6 +176,3 @@ let g:ale_lint_on_save = 1 " hint when save file
 " let Tlist_Show_One_File = 1
 " let Tlist_Auto_Open=0
 " let Tlist_Use_Right_Window = 0
-
-" delimitmate
-" let g:delimitMate_expand_cr = 1
