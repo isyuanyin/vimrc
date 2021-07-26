@@ -80,7 +80,7 @@ au VimEnter ?* silent loadview
 " set selection=exclusive
 " set selectmode=mouse,key
 
-set paste
+" set paste
 
 set wildmenu
 
