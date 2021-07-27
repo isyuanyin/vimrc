@@ -96,8 +96,11 @@ set smartcase
 
 "- tab & window & buffer ---------------------------------------
 
+set splitbelow
+set splitright
+
 " Disable highlight when <leader><cr> is pressed
-nnoremap <silent> <leader><cr> :noh<cr>
+" nnoremap <silent> <leader><cr> :noh<cr>
 
 " Smart way to move between windows
 noremap <C-j> <C-W>j
@@ -118,6 +121,9 @@ nnoremap <leader>h :bprevious<cr>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>to :tabonly<cr>
 nnoremap <leader>tc :tabclose<cr>
-nnoremap <leader>tm :tabmove 
+nnoremap <leader>tm :tabmove
 nnoremap <leader>t<leader> :tabnext
 
+
+nnoremap <leader>\ :vsplit<CR>
+nnoremap <leader>- :split<CR>

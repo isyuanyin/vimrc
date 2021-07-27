@@ -11,8 +11,8 @@ test -d ~/.vim || mkdir -p ~/.vim
 link_vimrcs() {
 	test -d ~/.vim/vimrcs/ || mkdir -p ~/.vim/vimrcs
 
-	cp autoload ~/.vim
-	cp plugin ~/.vim
+	cp -r autoload ~/.vim
+	cp -r plugin ~/.vim
 
 	filelist=$(ls vimrcs)
 

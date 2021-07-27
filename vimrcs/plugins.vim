@@ -7,10 +7,14 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'othree/xml.vim'
+Plug 'bling/vim-bufferline'
+
+Plug 'zivyangll/git-blame.vim'
+
+" Plug 'othree/xml.vim'
 
 " HTML plugin
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 " grep tools
 " Plug 'vim-scripts/grep.vim'
@@ -52,11 +56,9 @@ Plug 'mhinz/vim-startify'
 Plug 'lfv89/vim-interestingwords'
 
 " A Git wrapper
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+"
 Plug 'junegunn/vim-easy-align'
 
 " Any valid git URL is allowed
@@ -66,15 +68,19 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } |
+	\ Plug 'scrooloose/nerdcommenter' |
+	\ Plug 'Xuyuanp/nerdtree-git-plugin' |
+	\Plug 'ryanoasis/vim-devicons'
 
+" 
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 Plug 'nathanaelkane/vim-indent-guides'
 
-" Using a non-default branch
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Generate config file for YouCompleteMe plugin.
+" Use :YcmGenerateConfig or :CCGenerateConfig
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " To find file, press <C-p> please.
 Plug 'kien/ctrlp.vim'
@@ -126,7 +132,7 @@ let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Show_One_File = 1
 let Tlist_Auto_Open=0
-let Tlist_Use_Right_Window = 0
+let Tlist_Use_Right_Window = 1
 
 
 "- nerdtree ------------------------------------------------
@@ -192,17 +198,68 @@ if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
+"- cscope --------------------------------------------------
+
+" set quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+" use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+set cscopetag
+
+" check cscope for definition of a symbol before checking ctags: set to 1
+" if you want the reverse search order.
+set csto=0
+
+" add any cscope database in current directory
+if filereadable("cscope.out")
+	cs add cscope.out
+" else add the database pointed to by environment variable
+elseif $CSCOPE_DB != ""
+	cs add $CSCOPE_DB
+endif
+
+" show msg when any other cscope db added
+set cscopeverbose
+
+
+" keymap for cscope
+nnoremap <leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cd :cs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>ci :cs find i ^<C-R>=expand("<cfile>")<CR><CR>
+
+"F6 for open quickfix
+nmap <F6> :cw<CR>
+
+"Ctrl+F6 for close quickfix
+nmap <C-F6> :ccl<CR>
+
+"F7 for select next quickfix
+nmap <F7> :cn<CR>
+
+"F8 for select last quickfix
+nmap <F8> :cp<CR>
+
+
 "- hexmode -------------------------------------------------
 
 let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.out,*.img,*iso'
 
 "- arm-syntax-vim ------------------------------------------
 
-au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
+autocmd BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
 
 "- emmet ---------------------------------------------------
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,mm EmmetInstall
+
+"- git-blame.vim -------------------------------------------
+
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 
 "- new plugin ----------------------------------------------
 
