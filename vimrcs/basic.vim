@@ -29,30 +29,32 @@ autocmd InsertLeave * set timeoutlen=0
 " color scheme
 colorscheme desert
 
-set ruler " display the line and column info
-
+" display the line and column info.
+set ruler
+" displaye the number of line.
 set number
+" the width of tab key.
+set tabstop=8
+" the width of new line.
+set shiftwidth=8
 
-" indent
-set tabstop=4
-set shiftwidth=4
 set autoindent
-
 set smartindent
+
 set cindent
 
-autocmd FileType java,javascript,html,css,xml set tabstop=2
-autocmd FileType java,javascript,html,css,xml set shiftwidth=2
-autocmd FileType java,javascript,html,css,xml set softtabstop=2
+autocmd FileType javascript,html,css,xml set tabstop=2
+autocmd FileType javascript,html,css,xml set shiftwidth=2
+autocmd FileType javascript,html,css,xml set softtabstop=2
 
-autocmd FileType python,shell,bash set tabstop=4
-autocmd FileType python,shell,bash set shiftwidth=4
-autocmd FileType python,shell,bash set softtabstop=4
+autocmd FileType java,python,shell,bash set tabstop=4
+autocmd FileType java,python,shell,bash set shiftwidth=4
+autocmd FileType java,python,shell,bash set softtabstop=4
 
 set list
 set listchars=tab:>-,trail:-
 
-" syntax
+" hightlight the key words of current syntax.
 syntax enable
 syntax on
 

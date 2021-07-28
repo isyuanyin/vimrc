@@ -60,8 +60,6 @@ developp_install() {
 	echo "Installed the vim configuration successfully!"
 }
 
-
-
 main() {
 	if [ $# == 0 ]
 	then
