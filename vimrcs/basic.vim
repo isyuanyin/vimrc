@@ -1,7 +1,7 @@
-" @url: https://github.com/isyuanyin/vimrc
-" @auhthor: Yuanyin Zhang
-" @mail: isyuanyin@gmail.com
-" @description: An example .vimrc file.
+" url: https://github.com/isyuanyin/vimrc
+" auhthor: Yuanyin Zhang
+" mail: isyuanyin@gmail.com
+" description: An example for .vimrc file.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -59,8 +59,9 @@ syntax enable
 syntax on
 
 " highlight the column where the cursor is.
-set cursorcolumn
-
+" set cursorcolumn
+set cursorline
+highlight CursorLine term=bold cterm=bold ctermbg=237
 
 "- motion & operator ------------------------------------------------
 

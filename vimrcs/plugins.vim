@@ -264,22 +264,22 @@ nnoremap <leader>fe :cs find e <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>ff :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <leader>fi :cs find i ^<C-R>=expand("<cfile>")<CR><CR>
 
-nmap <leader>ss :scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>sg :scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>sc :scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>sd :scs find d <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>st :scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>se :scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>sf :scs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <leader>si :scs find i <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>ss :scs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>sg :scs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>sc :scs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>sd :scs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>st :scs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>se :scs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>sf :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>si :scs find i <C-R>=expand("<cfile>")<CR><CR>
 
-nmap <leader>vs :vert scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>vg :vert scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>vc :vert scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>vt :vert scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>ve :vert scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>vi :vert scs find i <C-R>=expand("<cfile>")<CR><CR>
-nmap <leader>vd :vert scs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>vs :vert scs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>vg :vert scs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>vc :vert scs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>vt :vert scs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>ve :vert scs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>vi :vert scs find i <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>vd :vert scs find d <C-R>=expand("<cword>")<CR><CR>
 
 "F6 for open quickfix
 nmap <F6> :cw<CR>
