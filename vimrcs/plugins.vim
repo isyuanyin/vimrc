@@ -234,7 +234,7 @@ nnoremap <leader>l :call ToggleLocationList()<CR>
 "- cscope --------------------------------------------------
 
 " set quickfix
-set cscopequickfix=s-,c-,d-,i-,t-,e-
+set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
 
 " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
 set cscopetag
@@ -282,21 +282,21 @@ nnoremap <leader>vi :vert scs find i <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <leader>vd :vert scs find d <C-R>=expand("<cword>")<CR><CR>
 
 "F6 for open quickfix
-nmap <F6> :cw<CR>
+nnoremap <F6> :cw<CR>
 
 "Ctrl+F6 for close quickfix
-nmap <C-F6> :ccl<CR>
+nnoremap <C-F6> :ccl<CR>
 
 "F7 for select next quickfix
-nmap <F7> :cn<CR>
+nnoremap <F7> :cn<CR>
 
 "F8 for select last quickfix
-nmap <F8> :cp<CR>
+nnoremap <F8> :cp<CR>
 
 
 "- hexmode -------------------------------------------------
 
-let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o,*.out,*.img,*iso'
+let g:hexmode_patterns = '*Image,*.bin,*.exe,*.dat,*.o,*.out,*.img,*iso'
 
 "- arm-syntax-vim ------------------------------------------
 
