@@ -11,6 +11,7 @@
 
 "- general -------------------------------------------------
 set nocompatible
+set termguicolors
 
 " keyboard settings
 let mapleader = " "
