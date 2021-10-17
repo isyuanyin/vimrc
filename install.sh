@@ -93,3 +93,15 @@ cp -r autoload ~/.vim/
 
 main $@
 
+SET_COLOR="export TERM=xterm-256color"
+if [ -f ~/.bashrc ]
+then
+	case "$TERM" in
+	xterm-color|*-256color)
+		color_prompt=yes
+		;;
+	*)
+		echo ${SET_COLOR} >> ~/.bashrc
+		;;
+	esac
+fi

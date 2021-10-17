@@ -12,6 +12,11 @@
 "- general -------------------------------------------------
 set nocompatible
 
+" encode & decode
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+
 " keyboard settings
 let mapleader = " "
 
@@ -47,9 +52,9 @@ autocmd FileType javascript,html,css,xml set tabstop=2
 autocmd FileType javascript,html,css,xml set shiftwidth=2
 autocmd FileType javascript,html,css,xml set softtabstop=2
 
-autocmd FileType java,python,shell,bash set tabstop=4
-autocmd FileType java,python,shell,bash set shiftwidth=4
-autocmd FileType java,python,shell,bash set softtabstop=4
+autocmd FileType python,shell,bash set tabstop=4
+autocmd FileType python,shell,bash set shiftwidth=4
+autocmd FileType python,shell,bash set softtabstop=4
 
 set list
 set listchars=tab:>-,trail:-

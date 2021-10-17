@@ -22,7 +22,7 @@ Plug 'zivyangll/git-blame.vim'
 " Plug 'othree/xml.vim'
 
 " HTML plugin
-" Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " grep tools
 " Plug 'vim-scripts/grep.vim'
@@ -40,6 +40,9 @@ Plug 'ludovicchabant/vim-gutentags'
 " Markdown writting prlugin
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+
+" modern latex plugin
+Plug 'lervag/vimtex'
 
 " plugin for latex coding
 " Plug 'jcf/vim-latex'
@@ -107,6 +110,9 @@ Plug 'majutsushi/tagbar'
 
 " cscope
 Plug 'vim-scripts/cscope.vim'
+
+" code format style
+Plug 'rhysd/vim-clang-format'
 
 " Initialize plugin system
 call plug#end()
@@ -346,6 +352,16 @@ let g:ycm_server_python_interpreter='/usr/bin/python'
 
 " let g:ycm_confirm_extra_conf=0
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+
+"- vim-clang-format ----------------------------------------
+" let g:clang_format#auto_format_on_insert_leave=1	"退出插入模式时自动格式化
+
+"- vimtex --------------------------------------------------
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mod=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 "- new plugin ----------------------------------------------
 
